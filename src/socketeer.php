@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @license GPL 3.0
+ * @license GNU
+ *
  */
 
 namespace Thecichos\Socketeer;
