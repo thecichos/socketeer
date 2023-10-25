@@ -1,0 +1,17 @@
+{
+    "name": "thecichos/socketeer",
+    "description": "An easy interface for making sockets",
+    "type": "library",
+    "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "Thecichos\\Socketeer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "thecichos"
+        }
+    ],
+    "require": {}
+}
