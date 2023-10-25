@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @license GNU
+ * @license GPL-3.0+
  *
  */
 
