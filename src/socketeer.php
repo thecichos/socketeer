@@ -7,7 +7,7 @@
 
 namespace Thecichos\Socketeer;
 
-abstract class socketeer
+abstract class Socketeer
 {
 
 	##########################
