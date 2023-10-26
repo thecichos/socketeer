@@ -38,7 +38,7 @@ abstract class socketeer
     abstract protected function on_socket_disconnect() : bool;
 
 	/**
-	 * This method is called everytime the socket
+	 * This method is called in the while loop in the start method
 	 *
 	 * @return void
 	 */
