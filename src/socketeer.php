@@ -19,21 +19,20 @@ abstract class socketeer
 	 *
 	 * @return bool
 	 */
-    abstract protected function connect_socket(\Socket $socket) : bool;
+    abstract protected function connect_socket($socket) : bool;
 
 	/**
 	 * This method is called whenever a socket is receiving data
 	 *
 	 * @param String $socketData
-	 * @param Socket $socketResource
+	 * @param $socketResource
 	 * @return bool
 	 */
-    abstract protected function socket_receive($socketData, \Socket $socketResource) : bool;
+    abstract protected function socket_receive(string $socketData, $socketResource) : bool;
 
 	/**
 	 * This method is called whenever a socket is disconnecting
 	 *
-	 * @param Socket $socketResource
 	 * @return bool
 	 */
     abstract protected function on_socket_disconnect() : bool;
@@ -68,10 +67,8 @@ abstract class socketeer
 
 	/**
 	 * The main socket
-	 *
-	 * @var \Socket|false|resource 
 	 */
-    protected \Socket 	$socket;
+    protected		 	$socket;
 
 	/**
 	 * The port the socket communicates on
@@ -132,7 +129,7 @@ abstract class socketeer
         }
     }
 
-	private function is_socket_to_be_disconnected(Socket $socket) : bool
+	private function is_socket_to_be_disconnected($socket) : bool
 	{
 		$socketData = @socket_read($socket, 1024, PHP_NORMAL_READ);
 		if (socket_last_error($socket)) {
@@ -298,7 +295,7 @@ abstract class socketeer
         return $header . $socketData;
     }
 
-	protected function disconnect_single_socket(\Socket $socket) : bool
+	protected function disconnect_single_socket($socket) : bool
 	{
 		@socket_getpeername($socket, $client_ip_address);
 		$newSocketIndex = array_search($socket, $this->sockets);
@@ -306,7 +303,7 @@ abstract class socketeer
 		return true;
 	}
 
-	protected function write_to_single_socket(\Socket $socket, string $text) : bool
+	protected function write_to_single_socket($socket, string $text) : bool
 	{
 		$strMessage = $this->seal($text);
 		$intLength = strlen($strMessage);
